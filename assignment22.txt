@@ -1,0 +1,66 @@
+Assignment_22
+1. What is the result of the code, and explain?
+X = 'iNeuron'
+def func():
+    print(X)
+func()
+iNeuron
+Here when func() is called it will execute the statement written inside it which print the value of x whose value is assigned as 'ineuron'.
+
+2. What is the result of the code, and explain?
+X = 'iNeuron'
+def func():
+    X = 'NI!'
+func()
+print(X)
+iNeuron
+Here when func() is called it will execute the statement written inside it which only initialize value of x='NI' but it doesnot return anything(None).So it comes out of the block and doesnot print anything. Again when print(x) is executed it prints the value of X = 'iNeuron'.
+
+3. What does this code print, and why?
+X = 'iNeuron'
+def func():
+    X = 'NI'
+    print(X)
+func()
+NI
+print(X)
+iNeuron
+Here when func() is called it will execute the statement written inside it which initialize value of x='NI' and subsequently print the value of X.The scope of X = 'NI'is within the block func(). But when a print statement i.e print(X) is executed it prints x value as iNeuron.(X is treated as global variable)
+
+4. What output does this code produce? Why?
+X = 'iNeuron'
+def func():
+    global X
+    X = 'NI'
+func()
+print(X)
+NI
+Here in func() we have declared X as global variable hence it's previous value i.e 'iNeuron' is overrided and when print(x) is executed it prints latest updated value i.e 'NI'.
+
+5. What about this code—what’s the output, and why?
+X = 'iNeuron'
+def func():
+    X = 'NI'
+def nested():
+    print(X)
+nested()
+iNeuron
+func()
+X
+'iNeuron'
+Here when nested() is called it prints X = 'iNeuron'(Global variable). In func(), X = 'NI' the scope of X is within func() as it is a local variable.
+
+6. How about this code: what is its output in Python 3, and explain?
+def func():
+    X = 'NI'
+def nested():
+    nonlocal X
+    X = 'Spam'
+nested()
+print(X)
+  File "<ipython-input-37-c524855a0f03>", line 4
+    nonlocal X
+    ^
+SyntaxError: no binding for nonlocal 'X' found
+func()
+A variable if we want to access outside the block as well as within the block should be declared as global.
